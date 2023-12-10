@@ -1,0 +1,14 @@
+.gif-container {
+  flex: 1;
+}
+
+.gif-image {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .gif-container {
+    order: 1;
+  }
+}

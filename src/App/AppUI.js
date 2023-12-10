@@ -10,6 +10,7 @@ import { CreateTodoButton } from "../CreateTodoButton";
 import { TodoForm } from "../TodoForm";
 import { Modal } from "../Modal";
 import { TodoContext } from "../TodoContext";
+import { GifComponent } from "../gif";
 
 function AppUI() {
   const {
@@ -23,33 +24,45 @@ function AppUI() {
   } = React.useContext(TodoContext);
 
   return (
-    <>
-      <TodoCounter />
-      <TodoSearch />
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <GifComponent />
 
-      <TodoList>
-        {loading && <TodosLoading />}
-        {error && <TodosError />}
-        {!loading && searchedTodos.length === 0 && <EmptyTodos />}
-        {searchedTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </TodoList>
+      <div style={{ flex: 2, padding: "20px", width: "100%" }}>
+        <>
+          <TodoCounter />
+          <TodoSearch />
 
-      <CreateTodoButton setOpenModal={setOpenModal} />
+          <TodoList>
+            {loading && <TodosLoading />}
+            {error && <TodosError />}
+            {!loading && searchedTodos.length === 0 && <EmptyTodos />}
+            {searchedTodos.map((todo) => (
+              <TodoItem
+                key={todo.text}
+                text={todo.text}
+                completed={todo.completed}
+                onComplete={() => completeTodo(todo.text)}
+                onDelete={() => deleteTodo(todo.text)}
+              />
+            ))}
+          </TodoList>
 
-      {openModal && (
-        <Modal>
-          <TodoForm />
-        </Modal>
-      )}
-    </>
+          <CreateTodoButton setOpenModal={setOpenModal} />
+
+          {openModal && (
+            <Modal>
+              <TodoForm />
+            </Modal>
+          )}
+        </>
+      </div>
+    </div>
   );
 }
+
 export { AppUI };
