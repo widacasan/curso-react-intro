@@ -24,17 +24,15 @@ function AppUI() {
   } = React.useContext(TodoContext);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <GifComponent />
+    <div>
+      <div>
+        <GifComponent />
+      </div>
 
-      <div style={{ flex: 2, padding: "20px", width: "100%" }}>
+      <div>
+        <TodoCounter />
+
         <>
-          <TodoCounter />
           <TodoSearch />
 
           <TodoList>

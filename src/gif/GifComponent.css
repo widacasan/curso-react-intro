@@ -1,14 +1,16 @@
 .gif-container {
   flex: 1;
+  text-align: center;
 }
 
 .gif-image {
-  width: 100%;
+  width: 50%;
   height: auto;
 }
 
 @media (max-width: 768px) {
   .gif-container {
     order: 1;
+    width: 300px;
   }
 }

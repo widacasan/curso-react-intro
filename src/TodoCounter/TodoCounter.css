@@ -9,3 +9,8 @@
 .TodoCounter span {
   font-weight: bold;
 }
+@media (max-width: 768px) {
+  .TodoCounter {
+    padding: 20px;
+  }
+}
